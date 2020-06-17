@@ -5,9 +5,10 @@ const amountElementEx = document.getElementById('amount-ex');
 // const rateElement = document.getElementById('rate');
 const swap = document.getElementById('swap');
 const save = document.getElementById('save');
-const histroyCard = document.getElementById('histroyCard');
-const history = document.getElementById('history');
+const historyCard = document.getElementsByClassName('historyCard');
+const history = document.getElementsByClassName('history');
 
+const records = [];
 
 function calculate() {
 
@@ -41,14 +42,23 @@ amountElementEx.addEventListener('input', calculate);
 //     calculate();
 // });
 
-function showHistory() {
-    historyCard.style.display = "block";
-    history.innerHTML = `Excanged <strong>${amountElementBase.value} ${currencyElementBase.value} </strong> to <strong>${amountElementEx.value} ${currencyElementEx.value}</strong>`;
+
+function saveHistory() {
+
+    const currentRecord = `Excanged <br /><strong>${amountElementBase.value} ${currencyElementBase.value} </strong> to <strong>${amountElementEx.value} ${currencyElementEx.value}</strong>`;
+
+    records.push(currentRecord);
+
+    showHistory(records);
 };
 
-// save.addEventListener('click', () => {
-//     showHistory();
-    
-// })
+function showHistory(records) {
+
+    console.log(records);
+
+    i = records.length - 1;
+
+    document.getElementById('gogo').innerHTML += '<div class="card historyCard" style="display: inline-block"> <div class="card-body"> <p class="card-text" class="history">' + records[i] + '</p> </div> </div>';
+}
 
 calculate();
