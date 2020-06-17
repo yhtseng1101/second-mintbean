@@ -1,0 +1,17 @@
+body {
+    background-color: #255665;
+}
+
+i {
+    font-size: 3em;
+    color: #E6E525;
+}
+
+h2 {
+    color: #E6E525;
+}
+
+#historyCard {
+    width: 18rem;
+    display: none;
+}
