@@ -8,6 +8,7 @@ const save = document.getElementById('save');
 const historyCard = document.getElementsByClassName('historyCard');
 const history = document.getElementsByClassName('history');
 
+
 const records = [];
 
 function calculate() {
@@ -23,6 +24,10 @@ function calculate() {
             const rate = data.conversion_rates[`${exCurrency}`];
             amountElementEx.value = (amountElementBase.value * rate).toFixed(2);
         })
+        .catch((err) => {
+            alert('Currently only USD and EUR are available as base currency.')
+        })
+        
 };
 
 currencyElementBase.addEventListener('change', calculate);
@@ -31,16 +36,13 @@ amountElementBase.addEventListener('input', calculate);
 currencyElementEx.addEventListener('change', calculate);
 amountElementEx.addEventListener('input', calculate);
 
-// swap.addEventListener('click', () => {
-//     const baseNow = currencyElementBase.value;
-//     const exNow = currencyElementEx.value;
-//     console.log(baseNow);
-//     console.log(exNow);
-//     currencyElementBase.value = exNow;
-//     currencyElementEx.value = baseNow;
-//     console.log('Here is good');
-//     calculate();
-// });
+swap.addEventListener('click', () => {
+    const baseNow = currencyElementBase.value;
+    const exNow = currencyElementEx.value;
+    currencyElementBase.value = exNow;
+    currencyElementEx.value = baseNow;
+    calculate();
+});
 
 
 function saveHistory() {
@@ -58,7 +60,7 @@ function showHistory(records) {
 
     i = records.length - 1;
 
-    document.getElementById('gogo').innerHTML += '<div class="card historyCard" style="display: inline-block"> <div class="card-body"> <p class="card-text" class="history">' + records[i] + '</p> </div> </div>';
+    document.getElementById('invisibleCards').innerHTML += '<div class="card historyCard" style="display: inline-block"> <div class="card-body"> <p class="card-text" class="history">' + records[i] + '</p> </div> </div>';
 }
 
 calculate();

@@ -43,13 +43,19 @@
                 </div>
             </div>
 
-            <!-- <div class="form-group btn btn-primary" id="swap">Swap</div> -->
+           
+            <div class="row">
+                <div class="col offset-2">
+                    <div class="form-group btn btn-primary" id="swap">Swap</div>
+                </div>
+            </div>
 
               <div class="form-group">
                 <div class="row justify-content-center">
                     <div class="col-2">
                         <select class="form-control" id="currency-ex">
                             <option value="EUR">EUR</option>
+                            <option value="USD">USD</option>
                             <option value="AED">AED</option>
                             <option value="ARS">ARS</option>
                             <option value="AUD">AUD</option>
@@ -58,20 +64,22 @@
                         </select>
                     </div>
                     <div class="col-3 col-sm-6">
-                        <input class="form-control" type="number" id="amount-ex">
+                        <input class="form-control" type="number" id="amount-ex" disabled>
                     </div>
                 </div>
             </div>
+
             <div class="row">
                 <div class="col offset-2">
-                    <div class="form-group btn btn-primary" id="save" onClick="saveHistory()">Save Search History</div>
+                    <div class="form-group btn btn-primary" id="save" onClick="saveHistory()">Save Result</div>
                 </div>
             </div>
+
         </form>
     </div>
 
     <div class="container mt-5">
-        <div class="row offset-2" id="gogo"></div>
+        <div class="row offset-2" id="invisibleCards"></div>
     </div>
     </div>
 
