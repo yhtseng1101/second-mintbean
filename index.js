@@ -11,6 +11,12 @@ const history = document.getElementsByClassName('history');
 
 const records = [];
 
+var app = new EmberApp({
+    'ember-font-awesome': {
+    removeUnusedIcons: EmberApp.env() === 'production' // The addon will remove unused icons in production
+    }
+  });
+
 function calculate() {
 
     const baseCurrency = currencyElementBase.value;
